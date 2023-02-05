@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!--이 문서가 HTML을 쓴다는 걸 브라우저에게 알려준다(문서유형)-->
+<!--
+  모든 html 문서는 문서 유형을 알리며 시작해야 한다.
+  브라우저가 이 문서가 'html' 문서임을 알게 되면
+  모든 브라우저가 html 5 사양으로 html을 렌더링해야 한다는 걸 알게 된다.
+-->
+<html lang="en">
+  <!--html 페이지가 사용하는 언어를 지정(문자셋 속성 지정) lang-->
+  <head>
+    <meta charset="UTF-8" />
+    <!--
+      meta data의 약자
+      데이터에 대한! 데이터
+      캐릭터셋을 묘사한다
+    -->
+    <title>The Basic Language of the Web: HTML</title>
+  </head>
+
+  <body>
+    <!-- html > head - body -->
+    <!--body : 웹페이지에서 볼 수 있는 모든 요소-콘텐츠 를 담는다.-->
+
+    <!-- <h1>The Basic Language of the Web: HTML</h1>
+    <h2>The Basic Language of the Web: HTML</h2>
+    <h3>The Basic Language of the Web: HTML</h3>
+    <h4>The Basic Language of the Web: HTML</h4>
+    <h5>The Basic Language of the Web: HTML</h5>
+    <h6>The Basic Language of the Web: HTML</h6> -->
+    <!-- h1~6인 머리글자는 텍스트를 '논리적인 섹션'으로 나눈다 -->
+
+    <!--header는 웹문서의 상단 혹은 작은 단위의 상단을 의미한다.-->
+    <header>
+      <h1>📘 The Code Magazine</h1>
+      <!--
+        사실 h1은 몇 개 사용해도 상관없지만
+        페이지마다 한 개의 h1만 존재하는 게 좋다. 
+      -->
+
+      <!--내비케이션의 약자nav 컨테이너요소-->
+      <nav>
+        <a href="002_blog.html">Blog</a>
+        <a href="#">Challenges</a>
+        <a href="#">Flexbox</a>
+        <a href="#">CSS Grid</a>
+        <!--
+          #은 아무 의미는 없다. 하지만 클릭하면 현재 페이지의 상단으로 이동한다.
+        -->
+      </nav>
+    </header>
+
+    <article>
+      <header>
+        <h2>The Basic Language of the Web: HTML</h2>
+
+        <img
+          src="../img/laura-jones.jpg"
+          alt="Headshot of laura Jones"
+          width="50"
+          height="50"
+        />
+
+        <p>Posted by <strong>Laura Jones</strong> on Monday, June 21st 2027</p>
+        <!--큰 텍스트 블록 요소 p-->
+        <!--
+      텍스트를 '진하게' 표시하는 두 가지 태그
+      b : 구체적인 의미가 담기지 않는다. 그저 '진하게'.
+      strong : 페이지에서 돋보이고자 하는 요소(라는의미를 담을때)
+    -->
+
+        <img
+          src="../img/post-img.jpg"
+          alt="HTML code on a screen"
+          width="500"
+          height="200"
+        />
+        <!--
+      attribute 속성 ex) src, alt ...
+      특히나 img 태그에서 가장 중요한 속성은 alt
+      alt는 대안 텍스트를 의미
+      이미지에 관해 설명하는 텍스트를 담는다
+      1. 검색엔진이 이미지 내용을 알게 한다. -> 즉, 이게 없으면 검색엔진은 그 이미지에 대해 알 수가 없다.
+      2. 시각장애인도 웹사이트를 이용할 수 있게 한다 -> 스크린리더를 사용해 이미지를 읽어주기 때문에(적절한 묘사가 중요한 이유!)
+      3. 오류 등으로 이미지가 출력되지 않을 때 출력된다.
+    -->
+      </header>
+      <!--기사의 머리부분head-->
+
+      <p>
+        All modern websites and web applications are built using three
+        <em>fundamental</em>
+        technologies: HTML, CSS and JavaScript. These are the languages of the
+        web.
+      </p>
+      <!--
+      시맨틱한 웹페이지를 만들기 위해 이탤릭체 태그는 어떤 걸 사용해야할까?
+      i : 말그대로 그냥 이탤릭체로 바꿔줄 뿐. 의미가 담기지 않는다.
+      em : 텍스트를 강조했다는 의미를 부여하기 위해 사용한다.
+    -->
+
+      <p>
+        In this post, let's focus on HTML. We will learn what HTML is all about,
+        and why you too should learn it.
+      </p>
+
+      <h3>What is HTML?</h3>
+      <p>
+        HTML stands for <strong>H</strong>yper<strong>T</strong>ext
+        <strong>M</strong>arkup <strong>L</strong>anguage. It's a markup
+        language that web developers use to structure and describe the content
+        of a webpage (not a programming language).
+      </p>
+      <p>
+        HTML consists of elements that describe different types of content:
+        paragraphs, links, headings, images, video, etc. Web browsers understand
+        HTML and render HTML code as websites.
+      </p>
+
+      <p>In HTML, each element is made up of 3 parts:</p>
+      <ol>
+        <!--정렬되어 있는 리스트 ol-->
+        <li>The opening tag</li>
+        <li>The closing tag</li>
+        <li>The actual element</li>
+      </ol>
+      <p>
+        You can learn more at the
+        <a href="https://developer.mozilla.org/ko/docs/Web/HTML" target="_blank"
+          >MDN Web Docs.</a
+        >
+        <!--
+        target 속성 > 새창열기, 그 창에서 열기 ... 등 
+      --></p>
+
+      <h3>Why should you learn HTML?</h3>
+      <p>
+        There are countless reasons for learning the fundamental language of the
+        web. Here are 5 of them:
+      </p>
+
+      <ul>
+        <!--순서x 리스트 ul-->
+        <li>To be able to use the fundamental web dev language</li>
+        <li>
+          To hand-craft beautiful websites instead of relying on tools like
+          Worpress or Wix
+        </li>
+        <li>To build web applications</li>
+        <li>To impress friends</li>
+        <li>To have fun 😃</li>
+      </ul>
+
+      <p>Hopefully you learned something new here. See you next time!</p>
+    </article>
+
+    <!--페이지의 주요 파트에 있는 정보를 보완하는 부차적인 정보-->
+    <aside>
+      <h4>Related posts</h4>
+      <ul>
+        <li>
+          <img
+            src="../img/related-1.jpg"
+            alt="programming person"
+            width="80"
+            height="80"
+          />
+          <a href="#">How to Learn Web Development</a>
+          <p>By Jonas Schmedtmann</p>
+        </li>
+        <li>
+          <img
+            src="../img/related-2.jpg"
+            alt="thunder"
+            width="80"
+            height="80"
+          />
+          <a href="#">The Unknown Powers of CSS</a>
+          <p>By Jim Dillon</p>
+        </li>
+        <li>
+          <img
+            src="../img/related-3.jpg"
+            alt="computer code"
+            width="80"
+            height="80"
+          />
+          <a href="#">Why JavaScript is Awesome</a>
+          <p>By Matilda</p>
+        </li>
+      </ul>
+      <!--
+        왜 리스트로 구현할까?
+        리스트로 묶어둔 내용들은 관련된 게시물, 목록이라고 쉽게 주장이 가능하기 때문.
+      -->
+    </aside>
+
+    <footer>
+      <!--단락에 넣거나 그대로 텍스트 삽입 > 이경우에는 자식요소가 없기 때문에 그냥 텍스트 삽입-->
+      <!--특수문자 사용하기 : HTML 엔티티-->
+      Copyright &copy; 2027 by The Code Magazine
+    </footer>
+  </body>
+</html>
