@@ -1,0 +1,142 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.4;
+}
+
+/* PRODUCT */
+.product {
+  width: 825px;
+  margin: 50px auto;
+  border: 5px solid #000;
+  position: relative;
+}
+
+.product-title {
+  padding: 15px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #f7f7f7;
+}
+
+.sale {
+  display: inline-block;
+  position: absolute;
+  top: -15px;
+  left: -30px;
+
+  background-color: #ff0000;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 5px 15px;
+  letter-spacing: 2px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.small {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  color: #777;
+}
+
+.description {
+  margin-top: 20px;
+}
+
+/* LINK */
+.more-info:link,
+.more-info:visited {
+  color: #000;
+  text-decoration: underline;
+}
+
+.more-info:hover,
+.more-info:active {
+  text-decoration: none;
+}
+
+/* COLOR */
+.color-container {
+  padding-top: 20px;
+}
+
+.color {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #000;
+  margin-right: 10px;
+}
+
+.color-blue {
+  background-color: rgb(75, 75, 255);
+}
+
+.color-red {
+  background-color: rgb(255, 49, 49);
+}
+
+.color-yellow {
+  background-color: rgb(255, 217, 0);
+}
+
+.color-green {
+  background-color: rgb(108, 148, 47);
+}
+
+.color-brown {
+  background-color: rgb(129, 93, 54);
+}
+
+.color:hover {
+  cursor: pointer;
+}
+
+/* DEATAIL */
+.details-title {
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.details {
+  list-style-type: square;
+}
+
+.details li {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+/* BUTTON */
+.add-btn {
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  background-color: #000;
+  text-transform: uppercase;
+}
+
+.add-btn:hover {
+  color: #000;
+  border-top: 5px solid #000;
+  background-color: #fff;
+}

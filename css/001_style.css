@@ -1,0 +1,317 @@
+* {
+  /* border-top: 10px solid #1098ad; */
+  margin: 0;
+  padding: 0;
+  /* 초기화 */
+}
+/*
+기본적으로 페이지 상의 모든 요소를 선택한다. 
+모든 요소에 특정 속성이 적용되길 원할 때 사용한다.
+body의 경우 텍스트 속성을 제외하면 모든 요소 각각에 적용되지 않지만
+*(유니버셜 선택자)를 사용하면 모~든 요소 각각에!! 다 적용이 된다. 
+상속되지 않는다.
+*/
+
+/* PAGE SECTIONS */
+body {
+  color: #444;
+  font-family: sans-serif;
+  border-top: 10px solid #1098ad;
+  position: relative;
+}
+/* 주의할 점은 body에 스타일을 지정한다고 해도 모~든 하위 요소에 하나하나 각각 다 적용되는 건 아니라는 점.*/
+/* 텍스트 속성만 하위요소에 새겨진다(?)고 생각하자 어떤 스타일을 넣든! 유전된다 상속된다!!  */
+.container {
+  width: 800px; /* 중앙정렬 단계1 */
+  margin: 0 auto; /* 단계 2 양쪽의 여백을 자동으로 조정한다 */
+}
+
+nav {
+  font-size: 18px;
+}
+
+article {
+  margin-bottom: 60px;
+}
+
+.main-header {
+  background-color: #f7f7f7;
+  padding: 20px 40px;
+  margin-bottom: 60px;
+  /* height: 80px; */
+}
+
+.post-header {
+  margin-bottom: 40px;
+}
+
+aside {
+  background-color: #f7f7f7;
+  border-top: 5px solid #1098ad;
+  border-bottom: 5px solid #1098ad;
+  padding: 50px 0;
+  width: 500px;
+}
+
+/* SMALLER ELEMENTS */
+/*목록*/
+h1,
+h2,
+h3,
+h4,
+p,
+li {
+  /* font-family: sans-serif; */
+  /* color: #444; 자주쓰이는gray */
+}
+
+h1,
+h2,
+h3 {
+  color: #1098ad;
+}
+
+h1 {
+  font-size: 26px;
+  text-transform: uppercase;
+  font-style: italic;
+}
+/*
+font-size 글씨 크기
+font-family 글꼴
+text-transform 대소문자 전체 변경
+font-style 진하게, 기울기, 밑줄 등 
+
+h1 이라고 해서 무조건 페이지에서 가장 크기가 커야 하는 건 아니다!
+*/
+
+h2 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+h3 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+h4 {
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+/*
+text-align 글씨 정렬
+*/
+
+p {
+  font-size: 22px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+/*
+line-height 줄 높이
+기본값은 1
+1.5로 한다면 글꼴의 1.5배 크기의 줄 높이가 지정된다는 뜻.
+*/
+
+ul,
+ol {
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+/*옆에 공간이 있어야 리스트 타이븓ㄹ이 보인다*/
+
+li {
+  /*폰트 기본사이즈는 16px*/
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+li:last-child {
+  margin-bottom: 0;
+}
+
+/*하위 선택*/
+/* footer p {
+  font-size: 16px;
+} */
+
+/* article header p {
+  font-style: italic;
+} */
+
+/*네이밍
+id는 오직 단 한 개만
+class는 여러개 가능*/
+#author {
+  font-style: italic;
+  font-size: 18px;
+}
+
+#copyright {
+  font-size: 16px;
+}
+
+/* css 네이밍 암묵적 규칙 : 여러단어를 사용해 네이밍할 경우 -를 사용해서 나누어준다 */
+.related-author {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* ul {
+  list-style: none;
+} */
+.related {
+  list-style: none;
+}
+
+body {
+  /* background-color: olivedrab; */
+}
+
+/* .first-li {
+  font-weight: bold;
+} */
+
+li:first-child {
+  font-weight: bold;
+}
+/* li 요소 중 첫번째 자식 요소*/
+
+li:last-child {
+  font-style: italic;
+}
+
+li:nth-child(even) {
+  /* background-color: antiquewhite; */
+}
+/* n번째 자식 (n) */
+/*홀수 odd / 짝수 even*/
+
+/* this won't work~~~*/
+article p:first-child {
+  color: red;
+}
+/*
+의사클래스(가상클래스, pseudo-class 슈도클래스 ...)
+first-child 선택할 때,
+많은 하위요소들 중 가장 첫번째 p를 선택하는 게 아니라
+부모요소의 가장 첫번째 자식 요소가 p일 경우 원하는 대로 스타일이 적용된다.
+last-child도 마찬가지.
+예를들어 위처럼 article p:first-child를 선택했을 때
+article의 첫번째 자식 요소가 p여야만 스타일이 적용된다.
+last-child라고 했을 경우 article의 가장 마지막 자식 요소가 p여야만 스타일이 적용된다.
+-> 즉, 부모요소 안에서 다중 요소를 혼합할 때 의사클래스가 제대로 적용되지 않는다는 것이다.
+
+모든 하위 요소가 같은 (예를들어 ul 하위요소는 모두 li이다) 상황에서는 아주 완벽하게 원하는대로 적용된다.
+*/
+
+/* 하이퍼링크 스타일링 */
+a:link {
+  color: #1098ad;
+  text-decoration: none;
+} /* :link 의사클래스는 href 속성이 있는 a 태그만 스타일 적용된다 */
+
+a:visited {
+  /* color: #777;*/
+  color: #1098ad;
+}
+
+a:hover {
+  color: orange;
+  font-weight: bold;
+  text-decoration: underline wavy orange;
+}
+
+a:active {
+  background-color: black;
+  font-style: italic;
+}
+/* 4종세트! link, visitied, hover, active */
+
+/* 충돌해결 */
+/* 
+#copyright {
+  color: red;
+} > 1순위
+*/
+
+.post-img {
+  width: 100%; /*상위(부모)항목의 너비크기*/
+  height: auto; /*너비에 비율을 맞춘다*/
+}
+
+nav a:link {
+  /* background-color: orange;
+  margin: 20px;
+  padding: 10px;
+  display: block; */
+
+  margin-right: 30px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+/* .copyright {
+  color: blue;
+}
+
+.text {
+  color: yellow;
+} 2순위 같은 계층 구조 안에서 가장 나중에 적용된 것이 덮어쓰기로 적용되니까
+
+footer p {
+  color: green; !important
+} */
+
+button {
+  font-size: 22px;
+  padding: 20px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  /*
+  아무것도 설정되어 있지 않았을 때 >
+  기본은 뷰포트를 기준으로 한다.
+  뷰포트란?
+  브라우저에서 페이지를 볼 수 있는 부분.
+  전체 페이지를 얘기하는 게 아니다.
+
+  상대적으로 설정된 position: relateive 로 지정한 첫번째 부모요소가 기준이 된다.
+  */
+}
+
+h1::first-letter {
+  font-style: normal;
+  margin-right: 5px;
+}
+
+h2::first-letter {
+  font-size: 50px;
+}
+
+h3 + p::first-line {
+  /* color: red; */
+}
+/* +는 인접한 형제자매 선택자 */
+
+h2 {
+  position: relative;
+}
+
+h2::after {
+  content: "TOP";
+  background-color: #ffe70e;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  display: inline-block;
+  padding: 5px 10px;
+  position: absolute;
+  top: -10px;
+  right: 0;
+}
+/* 의사 요소로 작업하는 방법!! */
