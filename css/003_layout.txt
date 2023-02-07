@@ -1,0 +1,88 @@
+
+레이아웃이란 ?
+텍스트 이미지 콘텐츠들이 웹페이지에 정렬 배치되는 것. 
+페이지에 시각적 구조를 부여하고 그 시각적 구조에 콘텐츠를 넣는것
+페이지 요소들을 시각적 구조로 배치하는 것.
+
+레이아웃을 지정하는 세 가지 방법 
+1. float (옛날 방식-대체됨)
+하지만 float로 제작된 오래된 웹사이트들을 확인하기 위해서는 알아두자!
+
+float가 적용된 요소는 마치 페이지에서 사라진 것처럼 보인다.
+왜냐하면 문서의 흐름을 벗어나기 때문이다. (마치 absolute처럼)
+하지만 absolute와 다른점은 주변 요소에 영향을 끼친다는 점이다.
+텍스트나 인라인요소들은 떠있는(float 요소) 요소를 감싼다. absoulte는 그런 요소들과 겹치는 경우가 많지만 float는 그렇지 않은 것.
+
+중요 + 컨테이너 요소는 float 요소에 알맞게 높이를 조정해주지 않는다. 
+마치 사라진 것 같지만
+실제로 사라진 건 아닌데
+사라진 것 같고
+사라진 건 아닌. .... (없어져서 다행이다)
+
+박스모델은 기본적으로 구성 요소의 너비와 높이를 계산한다. 
+만약 주어진 자리의 너비나 높이를 벗어났을 때 내가 원하는 대로 적용되지 않는다면? 수동으로 계산해서 수정해야할까?
+아니다! box-sizing을 사용한다. 
+box-sizing: border-box; 로 설정하면 width가 안쪽 여백, 테두리까지 모두 포함한다.
+기본값은 width = 콘텐츠 너비
+기본값 총 너비 => 콘텐츠(width) + 여백(padding) + 테두리(border)
+box-sizing: border-box; 총 너비(width) => 콘텐츠+여백+테두리
+
+2. flexbox
+1차원 레이아웃 구축에 안성맞춤.
+간단한 구조를 만들때 효과적
+
+특정 부모 컨테이너 안의 자식 요소들을 자동으로 ㅈ정렬하는 데에 특화되어 있다!
+세로중심잡기, 아이템마다 동일한 마진여백 ... 에 짱!
+
+flexbox를 사용하는 컨테이너명 : flex container
+> 이를 만들려면 display:flex;
+직계 아이템 전부가 플렉스 아이템이 된다.
+배치되는 축 main axis ----> 일반적 흐름
+가로축 corss axis 줄마다..
+
+flex container : 
+- gap
+- justify-content
+- align-items
+- flex-wrap
+- align-content
+
+flex items :
+- align-self
+- flex-grow
+- flex-shrink
+- flex-basis
+- flex: 0 1 auto (기본값)
+- order 
+
+flex property
+flex 항목 크기를 정하는 데에 사용하는 속성
+- flex-grow
+- flex-shrink
+- flex-basis
+-> flex 속성으로 한꺼번에 쓸 수 있다. 
+
+3. grid
+2차원 레이아웃 (행-열)
+복잡한 배치에 안성맞춤
+
+플렉스박스가 그리드를 대체하거나 그 반대로 대체하는 게 아니라
+서로 어우러져 같이 쓸 수 있다! 짱!
+
+컨테이너 / 그리드 아이템
+display grid
+모든 열과 행. 2차원적 배치를 정해야한다.
+grid-template-columns: ~px ~px ... ; 
+grid-template-rows: ~px ~px ... 
+gap
+column-gap / row-gap
+
+flex:1; 과 같은 느낌의
+1fr
+여러개 중복 쓰기 (css)
+repeat(횟수, ex.1fr);
+
+align-content
+align-items
+align-self ... 
+

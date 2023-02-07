@@ -2,6 +2,8 @@
   /* border-top: 10px solid #1098ad; */
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  /* 유전되는 속성이 아니기 때문에  */
   /* 초기화 */
 }
 /*
@@ -22,7 +24,7 @@ body {
 /* 주의할 점은 body에 스타일을 지정한다고 해도 모~든 하위 요소에 하나하나 각각 다 적용되는 건 아니라는 점.*/
 /* 텍스트 속성만 하위요소에 새겨진다(?)고 생각하자 어떤 스타일을 넣든! 유전된다 상속된다!!  */
 .container {
-  width: 800px; /* 중앙정렬 단계1 */
+  width: 1200px; /* 중앙정렬 단계1 */
   margin: 0 auto; /* 단계 2 양쪽의 여백을 자동으로 조정한다 */
 }
 
@@ -31,13 +33,13 @@ nav {
 }
 
 article {
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
 }
 
 .main-header {
   background-color: #f7f7f7;
   padding: 20px 40px;
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
   /* height: 80px; */
 }
 
@@ -49,8 +51,7 @@ aside {
   background-color: #f7f7f7;
   border-top: 5px solid #1098ad;
   border-bottom: 5px solid #1098ad;
-  padding: 50px 0;
-  width: 500px;
+  padding: 50px 40px;
 }
 
 /* SMALLER ELEMENTS */
@@ -100,6 +101,7 @@ h4 {
   font-size: 20px;
   text-transform: uppercase;
   text-align: center;
+  margin-bottom: 30px;
 }
 /*
 text-align 글씨 정렬
@@ -130,7 +132,7 @@ li {
 }
 
 li:last-child {
-  margin-bottom: 0;
+  /* margin-bottom: 0; */
 }
 
 /*하위 선택*/
@@ -165,6 +167,7 @@ class는 여러개 가능*/
 } */
 .related {
   list-style: none;
+  margin-left: 0;
 }
 
 body {
@@ -250,7 +253,6 @@ nav a:link {
   display: block; */
 
   margin-right: 30px;
-  margin-top: 10px;
   display: inline-block;
 }
 
@@ -315,3 +317,139 @@ h2::after {
   right: 0;
 }
 /* 의사 요소로 작업하는 방법!! */
+
+/* FLOATS */
+/* .author-img {
+  float: left;
+  margin-bottom: 20px;
+}
+float를 사용하면 기본적인 문서의 흐름에서 빠져나와 배치된다. 
+
+.author {
+  padding-left: 80px;
+  float: left;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+원래대로라면 author-img 요소 공간이 끝나고 옆부터 시작되어 배치되지만
+float를 사용했기 때문에 그 '원래대로의' 흐름에서 벗어났다는 걸 확인할 수 있다,
+
+h1 {
+  float: left;
+}
+
+nav {
+  float: right;
+}
+이 경우 header의 높이가 사라지는데,
+그 이유는 header 안의 모든 요소들이 float가 설정되어서 마치 이 페이지에 없는 것처럼 보이기 때문이다. 
+이러한 문제를 없애기 위해 블록요소를 만들어서 float 설정을 해제(?) 해주어야 한다.
+
+.clear {
+  clear: both;
+  양쪽 모두(both) float를 clear 한다 
+  하지만 이 방법은 html안에 빈 div를 여러개 만들어서 어지럽힐 수 있다는 점 등등.. 문제가 많다.
+  그래서 생긴게 클리어픽스해킹(?) clearfix hack
+}
+
+.clearfix::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+article {
+  width: 825px;
+  float: left;
+}
+
+aside {
+  width: 300px;
+  float: right;
+}
+
+footer {
+  clear: both;
+} */
+
+/* FLEX BOX */
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.author-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.author {
+  margin-bottom: 0;
+  margin-left: 15px;
+}
+
+.realated-post {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.related-link:link {
+  font-size: 17px;
+  font-weight: bold;
+  font-size: normal;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.related-author {
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* FLEXBOX LAYOUT */
+/* .row {
+  display: flex;
+  gap: 75px;
+  margin-bottom: 60px;
+  align-items: flex-start;
+}
+
+article {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+aside {
+  flex: 0 0 300px;
+} */
+
+/* CSS GRID LAYOUT */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  column-gap: 75px;
+  row-gap: 60px;
+  align-items: start;
+}
+
+.main-header {
+  /* grid-column: 1 / span2; */
+  grid-column: 1 / -1;
+}
+
+article {
+}
+
+aside {
+}
+
+footer {
+  background-color: #1098ad;
+  grid-column: 1 / -1;
+}
