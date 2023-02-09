@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App Layout</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: sans-serif;
+        color: #343a40;
+        font-size: 24px;
+        height: 100vh;
+        text-align: center;
+        font-weight: bold;
+
+        display: grid;
+        grid-template-columns: 80px 400px 1fr 250px;
+        grid-template-rows: 80px 1fr;
+      }
+
+      nav,
+      section,
+      main,
+      aside {
+        padding-top: 24px;
+      }
+
+      nav {
+        background-color: #343a40;
+        color: #fff;
+
+        grid-row: 1/-1;
+      }
+
+      menu {
+        background-color: #7048e8;
+        grid-column: 2/-1;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 0 40px;
+      }
+
+      button {
+        display: inline-block;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #5f3dc4;
+        border: none;
+        cursor: pointer;
+        color: white;
+        padding: 8px 12px;
+      }
+
+      button:last-child {
+        background-color: #d6336c;
+        margin-left: auto;
+        /* margin: 0 auto를 생각해보자!! */
+      }
+
+      section {
+        background-color: #e9ecef;
+        padding: 40px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        overflow: scroll;
+        /* 적용은 잘 됐지만 flexbox로 설정했기 때문에 스크롤이 생기는 게 아니라 높이에 맞춰 아이템들이 작아진다*/
+        /* overfolw: hidden;의 경우에는 컨테이너를 벗어난 아이템은 그대로 보이지 않는다. */
+      }
+
+      .email {
+        background-color: #adb5bd;
+        height: 96px;
+
+        flex-shrink: 0;
+        /* flex-shrink 기본값 1. 
+        요소의 너비나 높이에 맞춰서 설정된다는 뜻.
+        하지만 이를 0으로 없애면 맞춤설정(?)이 제거된다.
+        */
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      aside {
+        background-color: #e9ecef;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>Nav</nav>
+    <!-- nav와 menu의 차이? nav는 전형적인 사이트 탐색용 보통 링크를 포함한다. (앱안의 다른 장소)
+    menu는 응용 프로그램에 있는 메뉴 버튼 같은 느낌. -->
+    <menu>
+      <button>New</button>
+      <button>Reply</button>
+      <button>Forward</button>
+      <button>Mark unread</button>
+      <button>Trash</button>
+    </menu>
+    <section>
+      <div class="email">Email 1</div>
+      <div class="email">Email 2</div>
+      <div class="email">Email 3</div>
+      <div class="email">Email 4</div>
+      <div class="email">Email 5</div>
+      <div class="email">Email 6</div>
+      <div class="email">Email 7</div>
+      <div class="email">Email 8</div>
+      <div class="email">Email 9</div>
+    </section>
+    <main>
+      <!-- 콘텐츠를 보여주는 곳 -->
+      Email view
+    </main>
+    <aside>Additional info</aside>
+  </body>
+</html>
