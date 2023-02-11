@@ -28,14 +28,20 @@ p Default : 1.6
 - Shades: 
 - Accents: 
 - Greys
+#888
+#767676 ( #fff 에서 사용할 수 있는 가장 밝은 회색)
+#6f6f6f ( #fdf2e9 에서 사용할 수 있는 가장 밝은 회색)
 #555
 #333
 
 --- 03 SHADOWS
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+
 
 --- 04 BORDER-RADIUS
 
 Default 9px (늘이거나 줄이지 않으므로 px사용)
+medium 11px
 
 --- 05 WHITESPACE
 - spacing system (px)
@@ -91,7 +97,7 @@ body {
 }
 
 .heading-secondary {
-  font-size: 4.4rem;
+  font-size: 4.2rem;
   line-height: 1.2;
   margin-bottom: 9.6rem;
 }
@@ -112,6 +118,7 @@ body {
   letter-spacing: 0.75px;
 }
 
+.btn,
 .btn:link,
 .btn:visited {
   display: inline-block;
@@ -122,7 +129,11 @@ body {
   border-radius: 9px;
   text-decoration: none;
 
-  transition: background-color 1s;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  transition: all 1s;
   /* all > 어떠한 변화도!! 부드럽~게 일어나게 만든다
   background-color > background-color 변화만 부드럽게 일어나게 바꾼다 */
 }
@@ -154,6 +165,37 @@ body {
   color: #555;
 }
 
+.btn--form {
+  background-color: #45260a;
+  color: #fdf2fd;
+  align-self: flex-end;
+  padding: 1.2rem;
+}
+
+.btn--form:hover {
+  background-color: #fff;
+  color: #555;
+}
+.link:link,
+.link:visited {
+  display: inline-block;
+  color: #e67e22;
+  /* 이상적인 텍스트 장식을 위해 내가 스타일링 할 수 없는 text-decoration 은 꺼놓고  border로 스타일링 */
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  /* currentColor = 현재 폰트 색상 */
+  padding-bottom: 2px;
+  transition: all 0.3s;
+}
+
+.link:hover,
+.link:active {
+  color: #cf711f;
+  /* border 색상도 바뀌는 걸 확인할 수 있는데 이건 currentColor를 사용했기 때문이다. */
+  border-bottom: 1px solid transparent;
+  /* transparent > 투명으로 만들어준다. 1px씩 사라졌다 생겼따 하며 움직이는 걸 방지할 수 있다.*/
+}
+
 .margin-right-sm {
   /* 도우미클래스! */
   /* 보통 반드시 적용되어야 할 스타일을 도우미 클래스에 집어 넣기 때문에
@@ -161,10 +203,29 @@ body {
   margin-right: 1.6rem !important;
 }
 
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
+
+strong {
+  font-weight: 500;
+}
+
 .grid {
   display: grid;
   row-gap: 9.6rem;
   column-gap: 6.4rem;
+  /* margin-bottom: 9.6rem; */
+}
+
+/* .grid:last-child {
+  margin-bottom: 0;
+} */
+
+/* => 주석처리한 걸 한 번에 모아서 적으면 이렇게 적을 수 있다.
+가장 마지막 자식 요소인 grid 클래스를 제외한 gird클래스에만 스타일을 적용한다는 뜻 */
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
 }
 
 .grid--2-cols {
@@ -176,9 +237,37 @@ body {
 }
 
 .grid--4-cols {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .grid--center-v {
   align-items: center;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.list-item {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.list-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #e67e22;
 }
