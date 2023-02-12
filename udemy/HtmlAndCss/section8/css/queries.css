@@ -1,0 +1,327 @@
+/* px 값 보다는 rem 값을 사용한다
+저번에 말했던 것처럼 크기를 고정시켜버리기 때문에
+
+주의해야할 점은 미디어 쿼리를 설정했을 때 html 폰트사이즈가 62.5%로 설정된걸 무시한다는 점
+즉, 10px = 1rem 정도로 설정해둔 게 먹히지 않는 다는 점이다.
+
+그렇다면 기본설정이었던 1rem = 브라우저 기본 폰트 사이즈 가 된다.
+1rem = 1em = 16px
+
+rem root 폰트 사이즈
+em 현재 폰트 사이즈
+
+중단점 간의 px 차이는 200px 차이가 나야한다
+즉, 1300px 기준 중단점이 있었다면 그때 디자인이 1100px 까지는 깨지지 않고 보여야 한다는 점.
+*/
+
+/***********************/
+/* BELOW 1344px (smaller desktops) */
+/***********************/
+
+@media (max-width: 84em) {
+  /* 왜 84em? 중단점1으로 설정한 1350px을 em화 한 것이다. 
+  1em은 위에서 말한 것처럼 16px 이므로 1350 / 16px = 84.nnn ... 84em이 된 것
+  반대로 84*16(1em)을 해보면 1344가 나오므로 정확한 중단점은 1344px일때가 되었다는 걸 알 수 있다   */
+
+  .hero {
+    max-width: 120rem;
+  }
+
+  .heading-primary {
+    font-size: 4.4rem;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/***********************/
+/* BELOW 1200px (Landscape Tablets) */
+/***********************/
+
+@media (max-width: 75em) {
+  /*
+  하나하나 너무 큰 폰트사이즈를 한 번에 바꾸기 위해서는 처음부터 유동적인 웹사이트를 만들었다는 걸 기억해야 한다.
+  유동적인 웹사이트란 px값으로 설정한 게 아니라 rem값을 이용해 설정해왔다는 것
+  rem 값은 html(root 요소)의 폰트사이즈 설정을 기준으로 움직인다는 것
+  즉, html 의 폰트 사이즈를 고치면 rem으로 설정된 모든 폰트 사이즈가 달라진다는 뜻이다!
+  */
+  html {
+    font-size: 56.25%;
+    /* 9px / 16px = 0.5625 */
+  }
+
+  .header {
+    padding: 0 3.2rem;
+  }
+
+  .main-nav-list {
+    gap: 3.2rem;
+  }
+
+  .hero {
+    gap: 4.8rem;
+  }
+
+  .heading-primary {
+    font-size: 3.6rem;
+  }
+
+  .heading-secondary {
+    font-size: 3.6rem;
+  }
+
+  .heading-tertiary {
+    font-size: 2.4rem;
+  }
+
+  .grid {
+    column-gap: 4.8rem;
+    row-gap: 6.4rem;
+  }
+
+  .testimonials-container {
+    padding: 9.6rem 3.2rem;
+  }
+}
+
+/***********************/
+/* BELOW 944px (Tablets) */
+/***********************/
+@media (max-width: 59em) {
+  html {
+    font-size: 50%;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 0, 8rem;
+    gap: 6.4rem;
+  }
+
+  .hero-text-box,
+  .hero-img-box {
+    text-align: center;
+  }
+
+  .hero-img {
+    width: 60%;
+  }
+
+  .deliverd-meals {
+    justify-content: center;
+    margin-top: 3.2rem;
+  }
+
+  .logos img {
+    height: 2.4rem;
+  }
+
+  .step-number {
+    font-size: 7.4rem;
+  }
+
+  .meal-content {
+    padding: 2.4rem 3.2rem 3.2rem 2.4rem;
+  }
+
+  .section-testimonials {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .cta {
+    /* 3/5 = 60% + 2/5 = 40%*/
+    grid-template-columns: 3fr 2fr;
+  }
+
+  .cta-form {
+    grid-template-columns: 1fr;
+  }
+
+  .btn--form {
+    margin-top: 1.2rem;
+  }
+
+  /*MOBILE NAV*/
+  .btn-mobile-nav {
+    display: block;
+  }
+
+  .nav-open .main-nav {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  .nav-open .icon-mobile-nav[name="close-outline"] {
+    display: block;
+  }
+
+  .nav-open .icon-mobile-nav[name="menu-outline"] {
+    display: none;
+  }
+
+  .main-nav {
+    background-color: rgba(255, 255, 255, 0.667);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    transform: translateX(100%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.5s ease-in;
+
+    /*Hide nav*/
+    /* Allows No transitions at all*/
+    /* display: none; */
+    opacity: 0;
+
+    /* 왜 디스플레이가 아니라 오퍼시티를 사용하는걸까?
+    왜냐면 display 는 애니메이션을 입힐 수 없고, 오퍼시티는 가능하기 때문이다. */
+
+    /* 주의할 점
+    display none은 아무런 반응도 일으키지 않는다. 마우스, 키보드 이벤트 등
+    하지만 opacity는 눈에만 안보일 뿐 키보드, 마우스 이벤트가 일어날 수 있다.
+    이를 방지해야만 한다 (필수!!)
+    */
+    pointer-events: none;
+
+    /* 그리고 이벤트 감지와 마찬가지로 스크린리더가 이를 읽어버린다. 이것도 방지해야한다 */
+    visibility: hidden;
+  }
+
+  .nav-open .main-nav {
+    transform: translateX(0);
+  }
+
+  .main-nav-list {
+    flex-direction: column;
+    gap: 4.8rem;
+  }
+
+  .main-nav-link:link,
+  .main-nav-link:visited {
+    font-size: 3rem;
+  }
+}
+
+/***********************/
+/* BELOW 704px (Smaller Tablets) */
+/***********************/
+@media (max-width: 44em) {
+  .grid--3-cols,
+  .grid--4-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .diets {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .heading-secondary {
+    margin-bottom: 4.8rem;
+  }
+
+  .pricing-plan {
+    width: 100%;
+  }
+
+  /* 비대칭 그리드 만들기 */
+  .grid--footer {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .logo-col,
+  .address-col {
+    grid-column: span 3;
+  }
+  .nav-col {
+    grid-row: 1;
+    grid-column: span 2;
+    margin-bottom: 3.2rem;
+  }
+}
+
+/***********************/
+/* BELOW 544px (Phone) */
+/***********************/
+@media (max-width: 34em) {
+  .grid {
+    row-gap: 4.8rem;
+  }
+
+  .grid--2-cols,
+  .grid--3-cols,
+  .grid--4-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 0, 3.2rem;
+  }
+
+  .section-hero {
+    padding: 2.4rem 0 6.4rem 0;
+  }
+
+  .btn,
+  .btn:link,
+  .btn:visited {
+    padding: 2.4rem 1.6rem;
+  }
+
+  .hero-img {
+    width: 80%;
+  }
+
+  .logos img {
+    height: 1.2rem;
+  }
+
+  /* 그리드행 바꾸기 컨테이너의 2번째 6번째 요소 */
+  .step-img-box:nth-child(2) {
+    grid-row: 1; /*첫줄로옮기기*/
+  }
+
+  .step-img-box:nth-child(6) {
+    grid-row: 5;
+  }
+
+  .step-img-box {
+    transform: translateY(2.4rem);
+  }
+
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.6rem;
+  }
+
+  .cta {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-img-box {
+    height: 36rem;
+    grid-row: 1;
+  }
+
+  .cta-text-box {
+    padding: 3.2rem;
+  }
+}
